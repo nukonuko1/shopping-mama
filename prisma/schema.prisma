@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Area {
+  id         String  @id @default(cuid())
+  prefecture String
+  city       String
+  stores     Store[]
+
+  @@unique([prefecture, city])
+}
+
+model Store {
+  id        String  @id @default(cuid())
+  areaId    String
+  name      String
+  chainName String
+  address   String
+  latitude  Float
+  longitude Float
+  area      Area    @relation(fields: [areaId], references: [id])
+  prices    Price[]
+
+  @@index([areaId])
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  sortOrder Int       @default(0)
+  products  Product[]
+}
+
+model Product {
+  id         String   @id @default(cuid())
+  categoryId String
+  name       String
+  unit       String
+  imageUrl   String?
+  category   Category @relation(fields: [categoryId], references: [id])
+  prices     Price[]
+
+  @@index([categoryId])
+}
+
+model Price {
+  id        String   @id @default(cuid())
+  productId String
+  storeId   String
+  price     Int
+  userId    String
+  postedAt  DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id])
+  store     Store    @relation(fields: [storeId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@index([productId, storeId])
+  @@index([storeId])
+  @@index([postedAt])
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  displayName  String
+  createdAt    DateTime @default(now())
+  prices       Price[]
+}
