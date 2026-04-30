@@ -1,23 +1,94 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #1e293b;
+  --bg: #0d0d0d;
+  --bg-card: #1a1a1a;
+  --bg-card2: #222222;
+  --red: #dc2626;
+  --red-light: #ef4444;
+  --red-dark: #b91c1c;
+  --green: #16a34a;
+  --green-light: #22c55e;
+  --text: #f9fafb;
+  --text-muted: #9ca3af;
+  --border: #2d2d2d;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: #059669;
-  --color-primary-light: #d1fae5;
-  --color-primary-dark: #047857;
-  --color-accent: #f59e0b;
-  --color-danger: #ef4444;
-  --font-sans: Arial, Helvetica, sans-serif;
+  --color-bg: var(--bg);
+  --color-card: var(--bg-card);
+  --color-card2: var(--bg-card2);
+  --color-red: var(--red);
+  --color-red-light: var(--red-light);
+  --color-red-dark: var(--red-dark);
+  --color-green: var(--green);
+  --color-green-light: var(--green-light);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-border: var(--border);
+  --font-sans: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  min-height: 100dvh;
+  overscroll-behavior: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+/* Pulse animation for the main CTA */
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(220, 38, 38, 0);
+  }
+}
+
+.btn-pulse {
+  animation: pulse-red 2s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
+
+.animate-in-delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; animation-name: fade-in-up; animation-duration: 0.4s; }
+.animate-in-delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; animation-name: fade-in-up; animation-duration: 0.4s; }
+.animate-in-delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; animation-name: fade-in-up; animation-duration: 0.4s; }
+.animate-in-delay-4 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; animation-name: fade-in-up; animation-duration: 0.4s; }
