@@ -1,32 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0d0d0d;
-  --bg-card: #1a1a1a;
-  --bg-card2: #222222;
-  --red: #dc2626;
-  --red-light: #ef4444;
-  --red-dark: #b91c1c;
-  --green: #16a34a;
-  --green-light: #22c55e;
-  --text: #f9fafb;
-  --text-muted: #9ca3af;
-  --border: #2d2d2d;
+  --cream: #FAFAF7;
+  --cream-dark: #F2EDE7;
+  --brown: #8B6954;
+  --brown-light: #C4A882;
+  --brown-dark: #5C4438;
+  --text: #1C1C1C;
+  --text-muted: #7A7A7A;
+  --text-light: #B0A89E;
+  --border: #E5DED7;
+  --white: #FFFFFF;
 }
 
 @theme inline {
-  --color-bg: var(--bg);
-  --color-card: var(--bg-card);
-  --color-card2: var(--bg-card2);
-  --color-red: var(--red);
-  --color-red-light: var(--red-light);
-  --color-red-dark: var(--red-dark);
-  --color-green: var(--green);
-  --color-green-light: var(--green-light);
-  --color-text: var(--text);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-brown: var(--brown);
+  --color-brown-light: var(--brown-light);
+  --color-brown-dark: var(--brown-dark);
+  --color-ink: var(--text);
   --color-muted: var(--text-muted);
+  --color-light: var(--text-light);
   --color-border: var(--border);
-  --font-sans: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --font-serif: "Noto Serif JP", "游明朝", YuMincho, Georgia, serif;
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
 * {
@@ -34,49 +32,22 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans);
-  min-height: 100dvh;
-  overscroll-behavior: none;
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 2px;
+html, body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: var(--font-sans);
+  min-height: 100dvh;
 }
 
-/* Pulse animation for the main CTA */
-@keyframes pulse-red {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 12px rgba(220, 38, 38, 0);
-  }
-}
-
-.btn-pulse {
-  animation: pulse-red 2s ease-in-out infinite;
-}
-
-@keyframes fade-in-up {
+/* Fade in animation */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -84,11 +55,57 @@ html {
   }
 }
 
-.animate-in {
-  animation: fade-in-up 0.4s ease-out forwards;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.animate-in-delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards; animation-name: fade-in-up; animation-duration: 0.4s; }
-.animate-in-delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards; animation-name: fade-in-up; animation-duration: 0.4s; }
-.animate-in-delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards; animation-name: fade-in-up; animation-duration: 0.4s; }
-.animate-in-delay-4 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards; animation-name: fade-in-up; animation-duration: 0.4s; }
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Section label style */
+.section-label {
+  font-family: var(--font-serif);
+  letter-spacing: 0.2em;
+  color: var(--brown);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+/* Floating button pulse */
+@keyframes pulse-warm {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(139, 105, 84, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 32px rgba(139, 105, 84, 0.7);
+  }
+}
+
+.btn-float {
+  animation: pulse-warm 2.5s ease-in-out infinite;
+}
+
+/* Image placeholder */
+.img-placeholder {
+  background: linear-gradient(135deg, #EDE8E3 0%, #DDD5CB 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* Horizontal rule */
+.divider {
+  width: 32px;
+  height: 1px;
+  background: var(--brown-light);
+  margin: 0 auto;
+}

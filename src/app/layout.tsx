@@ -2,21 +2,20 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "その1本、本当に飲む？",
-  description: "飲みたい衝動が来た瞬間に開く。飲酒の損失を可視化し、飲まない未来へ導くアプリ。",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "black-translucent",
-    title: "その1本？",
+  title: "理容室 銀座 | 福島市の理容室・バーバー",
+  description: "創業45年。福島市の地域密着型理容室。丁寧な接客と熟練の顔剃り技術で、老若男女に愛されています。",
+  openGraph: {
+    title: "理容室 銀座",
+    description: "創業45年。福島市の地域密着型理容室。",
+    locale: "ja_JP",
+    type: "website",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  themeColor: "#0d0d0d",
+  themeColor: "#FAFAF7",
 };
 
 export default function RootLayout({
@@ -26,10 +25,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className="antialiased" style={{ background: "var(--bg)", color: "var(--text)" }}>
-        <div className="max-w-md mx-auto min-h-dvh relative">
-          {children}
-        </div>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased">
+        {children}
       </body>
     </html>
   );
