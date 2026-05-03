@@ -32,16 +32,16 @@ export default function Stylist() {
               className="text-xs tracking-[0.2em] mb-1"
               style={{ color: "var(--brown)" }}
             >
-              Owner Stylist
+              看板娘 Stylist
             </p>
             <h3
               className="text-xl tracking-widest mb-1"
               style={{ fontFamily: "var(--font-serif)", color: "var(--text)" }}
             >
-              山田 〇〇
+              ゆらん
             </h3>
             <p className="text-xs tracking-widest mb-6" style={{ color: "var(--text-light)" }}>
-              Yamada ◯◯
+              Yuran
             </p>
 
             <div
