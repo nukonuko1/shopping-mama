@@ -25,7 +25,7 @@ export default function Concept() {
           <p>
             創業から45年。地域のみなさまに支えられながら、
             <br className="hidden md:block" />
-            福島市でひとつひとつの椅子を磨いてきました。
+            理容室銀座でひとつひとつの椅子を磨いてきました。
           </p>
           <p>
             あるお客様はこう言ってくれました。

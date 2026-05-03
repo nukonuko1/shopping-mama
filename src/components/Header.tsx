@@ -62,10 +62,10 @@ export default function Header() {
             <BarberPole />
             <div>
               <span
-                className="block text-base font-bold tracking-[0.35em] leading-tight"
+                className="block text-sm font-bold tracking-[0.25em] leading-tight"
                 style={{ fontFamily: 'Georgia, "Noto Serif JP", serif', color: "#E8D5A0" }}
               >
-                銀座
+                理容室 銀座
               </span>
               <span
                 className="block tracking-[0.25em] leading-tight"

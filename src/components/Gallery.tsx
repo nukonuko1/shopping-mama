@@ -1,4 +1,4 @@
-const INSTAGRAM_URL = "https://instagram.com/example";
+const INSTAGRAM_URL = "https://www.instagram.com/riyoushitu_ginnza";
 
 const GALLERY_ITEMS = [
   { id: 1, label: "店舗外観" },

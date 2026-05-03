@@ -1,5 +1,6 @@
-const INSTAGRAM_URL = "https://instagram.com/example";
+const INSTAGRAM_URL = "https://www.instagram.com/riyoushitu_ginnza";
 const RESERVATION_URL = "https://example.com";
+const TEL = "024-553-8640";
 
 export default function Footer() {
   return (
@@ -7,13 +8,13 @@ export default function Footer() {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-10">
           <p
-            className="text-2xl tracking-widest mb-2"
+            className="text-2xl tracking-widest mb-1"
             style={{ fontFamily: "var(--font-serif)", color: "white" }}
           >
             銀座
           </p>
-          <p className="text-xs tracking-widest" style={{ color: "rgba(255,255,255,0.4)" }}>
-            理容室
+          <p className="text-xs tracking-[0.3em]" style={{ color: "rgba(255,255,255,0.4)" }}>
+            理容室 HAIR SALON
           </p>
         </div>
 
@@ -21,6 +22,20 @@ export default function Footer() {
           className="w-8 h-px mx-auto mb-10"
           style={{ background: "rgba(255,255,255,0.15)" }}
         />
+
+        {/* Contact info */}
+        <div className="text-center mb-8">
+          <a
+            href={`tel:${TEL.replace(/-/g, "")}`}
+            className="text-sm tracking-widest transition-opacity hover:opacity-70"
+            style={{ color: "rgba(255,255,255,0.6)" }}
+          >
+            {TEL}
+          </a>
+          <p className="mt-1 text-xs tracking-widest" style={{ color: "rgba(255,255,255,0.3)" }}>
+            〒960-0101 福島県福島市瀬上町薬師前１８－６８
+          </p>
+        </div>
 
         <div className="flex justify-center gap-8 mb-10">
           <a
@@ -54,7 +69,7 @@ export default function Footer() {
           className="text-center text-xs tracking-widest"
           style={{ color: "rgba(255,255,255,0.2)" }}
         >
-          © 理容室 銀座. All rights reserved.
+          © 理容室銀座. All rights reserved.
         </p>
       </div>
     </footer>

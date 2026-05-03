@@ -65,6 +65,13 @@ export default function ReservationCTA() {
           style={{ color: "rgba(255,255,255,0.4)" }}
         >
           ※ お電話でもご予約を承っています
+          <a
+            href="tel:0245538640"
+            className="transition-opacity hover:opacity-70"
+            style={{ color: "rgba(255,255,255,0.65)" }}
+          >
+            024-553-8640
+          </a>
         </p>
       </div>
     </section>
