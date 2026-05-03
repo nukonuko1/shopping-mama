@@ -1,27 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #FAFAF7;
-  --cream-dark: #F2EDE7;
-  --brown: #8B6954;
-  --brown-light: #C4A882;
-  --brown-dark: #5C4438;
-  --text: #1C1C1C;
-  --text-muted: #7A7A7A;
-  --text-light: #B0A89E;
-  --border: #E5DED7;
-  --white: #FFFFFF;
+  /* 写真から抽出したカラーパレット */
+  --amber: #D4821A;          /* 看板のオレンジ */
+  --amber-light: #F0A83C;    /* 明るいアンバー */
+  --amber-pale: #FDE8BC;     /* 薄いアンバー */
+  --teal: #1B5E8B;           /* 理容室の青丸 */
+  --teal-light: #2A7AB5;
+  --cream: #FBF5EA;          /* 温かみのあるクリーム */
+  --cream-dark: #F2E8D6;
+  --brown: #5C3A1E;          /* 深いブラウン */
+  --brown-mid: #8B5E34;      /* ミディアムブラウン */
+  --brown-light: #C49A6C;    /* 薄いブラウン */
+  --text: #2A1A0D;
+  --text-muted: #6B5540;
+  --text-light: #B09070;
+  --border: #DDD0B8;
+  --stripe-1: #D4821A;
+  --stripe-2: #1B5E8B;
 }
 
 @theme inline {
+  --color-amber: var(--amber);
+  --color-amber-light: var(--amber-light);
+  --color-amber-pale: var(--amber-pale);
+  --color-teal: var(--teal);
   --color-cream: var(--cream);
   --color-cream-dark: var(--cream-dark);
   --color-brown: var(--brown);
+  --color-brown-mid: var(--brown-mid);
   --color-brown-light: var(--brown-light);
-  --color-brown-dark: var(--brown-dark);
   --color-ink: var(--text);
   --color-muted: var(--text-muted);
-  --color-light: var(--text-light);
+  --color-warm-light: var(--text-light);
   --color-border: var(--border);
   --font-serif: "Noto Serif JP", "游明朝", YuMincho, Georgia, serif;
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -43,16 +54,53 @@ html, body {
   min-height: 100dvh;
 }
 
-/* Fade in animation */
+/* ===== Barber stripe pattern ===== */
+.barber-stripe {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--stripe-1) 0px,
+    var(--stripe-1) 6px,
+    #fff 6px,
+    #fff 12px,
+    var(--stripe-2) 12px,
+    var(--stripe-2) 18px,
+    #fff 18px,
+    #fff 24px
+  );
+}
+
+/* Thin accent stripe */
+.stripe-bar {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--amber) 0px,
+    var(--amber) 8px,
+    #fff 8px,
+    #fff 14px,
+    var(--teal) 14px,
+    var(--teal) 22px,
+    #fff 22px,
+    #fff 28px
+  );
+  height: 4px;
+  width: 100%;
+}
+
+/* ===== Retro oval badge ===== */
+.oval-badge {
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* ===== Animations ===== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -60,52 +108,65 @@ html, body {
   to { opacity: 1; }
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
 }
 
-.fade-in {
-  animation: fadeIn 1s ease-out forwards;
-}
+.fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
+.fade-in { animation: fadeIn 0.8s ease-out forwards; }
+.float { animation: float 3s ease-in-out infinite; }
 
-/* Section label style */
-.section-label {
-  font-family: var(--font-serif);
-  letter-spacing: 0.2em;
-  color: var(--brown);
-  font-size: 0.7rem;
+/* ===== Section header ===== */
+.section-eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
+  color: var(--amber);
+  font-family: var(--font-serif);
 }
 
-/* Floating button pulse */
-@keyframes pulse-warm {
-  0%, 100% {
-    box-shadow: 0 4px 20px rgba(139, 105, 84, 0.4);
-  }
-  50% {
-    box-shadow: 0 4px 32px rgba(139, 105, 84, 0.7);
-  }
+/* ===== Divider ===== */
+.divider-warm {
+  width: 40px;
+  height: 2px;
+  background: var(--amber);
+  margin: 0 auto;
+  border-radius: 1px;
 }
 
-.btn-float {
-  animation: pulse-warm 2.5s ease-in-out infinite;
+/* ===== Card style ===== */
+.card-warm {
+  background: #FFFDF8;
+  border: 1px solid var(--border);
+  border-radius: 8px;
 }
 
-/* Image placeholder */
+/* ===== Floating button ===== */
+@keyframes pulse-amber {
+  0%, 100% { box-shadow: 0 4px 20px rgba(212, 130, 26, 0.45); }
+  50% { box-shadow: 0 6px 32px rgba(212, 130, 26, 0.75); }
+}
+.btn-float { animation: pulse-amber 2.5s ease-in-out infinite; }
+
+/* ===== Image placeholder ===== */
 .img-placeholder {
-  background: linear-gradient(135deg, #EDE8E3 0%, #DDD5CB 100%);
+  background: linear-gradient(135deg, #EDE4D5 0%, #D9CCBA 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   color: var(--text-light);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
 }
 
-/* Horizontal rule */
-.divider {
-  width: 32px;
-  height: 1px;
-  background: var(--brown-light);
-  margin: 0 auto;
+/* ===== Quote style ===== */
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--amber-pale);
+  margin-bottom: -1rem;
 }

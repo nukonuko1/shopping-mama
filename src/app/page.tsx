@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Concept from "@/components/Concept";
+import Testimonials from "@/components/Testimonials";
 import Menu from "@/components/Menu";
 import Stylist from "@/components/Stylist";
 import Gallery from "@/components/Gallery";
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Concept />
+      <Testimonials />
       <Menu />
       <Stylist />
       <Gallery />
