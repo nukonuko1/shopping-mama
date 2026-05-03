@@ -7,12 +7,20 @@ export default function Hero() {
     <section className="relative min-h-dvh flex flex-col overflow-hidden">
       {/* ===== STOREFRONT PHOTO — FULL BLEED ===== */}
       <div className="absolute inset-0">
+        {/*
+          実際の写真に差し替える場合はこちらを使用:
+          <Image
+            src="/images/storefront.jpg"
+            alt="理容室 銀座 外観"
+            fill priority quality={90} sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center top" }}
+          />
+        */}
         <Image
-          src="/images/storefront.jpg"
+          src="/images/storefront.svg"
           alt="理容室 銀座 外観"
           fill
           priority
-          quality={90}
           sizes="100vw"
           style={{ objectFit: "cover", objectPosition: "center top" }}
         />
